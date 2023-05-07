@@ -1,0 +1,95 @@
+@baseUrl = http://localhost:6400
+### Health
+GET {{baseUrl}}/api/v1/health
+
+
+
+### User Health
+GET {{baseUrl}}/api/v1/users/health
+
+### List All Users
+GET {{baseUrl}}/api/v1/users
+
+### List a User with id 5
+GET {{baseUrl}}/api/v1/users/00000000-0000-0000-0000-000000000005
+
+
+
+### Concert Health
+GET {{baseUrl}}/api/v1/concerts/health
+### List All concerts
+GET {{baseUrl}}/api/v1/concerts
+### List a concerts
+GET {{baseUrl}}/api/v1/concerts/786d3bb4-a858-49ba-8803-15ffa2ec3679
+### Create a concert
+POST {{baseUrl}}/api/v1/concerts
+Content-Type: application/json
+
+{
+    "name": "The Beatles",
+    "venue": "The Gabba",
+    "date": "2023-06-07",
+    "capacity": 100,
+    "status": "ACTIVE"
+}
+
+### Update a concert
+PUT {{baseUrl}}/api/v1/concerts/786d3bb4-a858-49ba-8803-15ffa2ec3679
+Content-Type: application/json
+
+{
+    "name": "change",
+    "venue": "The Gabba1",
+    "date": "2023-06-05",
+    "capacity": 1003,
+    "status": "ACTIVE"
+}
+
+### Ticket Health
+GET {{baseUrl}}/api/v1/tickets/health
+### List All tickets
+GET {{baseUrl}}/api/v1/tickets
+Content-Type: application/json
+
+{
+    "user_id": "00000000-0000-0000-0000-000000000005"
+}
+### Create a ticket
+POST {{baseUrl}}/api/v1/tickets
+Content-Type: application/json
+
+{
+    "concert_id":"786d3bb4-a858-49ba-8803-15ffa2ec3679",
+    "user_id": "00000000-0000-0000-0000-000000000005"
+}
+
+
+
+
+
+
+
+### List All Todos
+GET {{baseUrl}}/api/v1/todos
+### Get a specific Todo
+GET {{baseUrl}}/api/v1/todos/1
+### Create a Todo
+POST {{baseUrl}}/api/v1/todos
+Content-Type: application/json
+
+{
+    "title": "Test Todo",
+    "description": "This is a test todo"
+}
+
+### Update a Todo
+PUT {{baseUrl}}/api/v1/todos/1
+Content-Type: application/json
+
+{
+    "title": "Updated Test Todo",
+    "description": "This is an updated test todo" 
+}
+
+### Delete a Todo
+DELETE {{baseUrl}}/api/v1/todos/1
